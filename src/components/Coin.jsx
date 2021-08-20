@@ -1,0 +1,28 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Coin = ({coin}) => {
+    return (
+       <Link to="/coindetail">
+         <li className="coinlist-item list-group-item- list-group-item-action dflex justify-content-between align items-center text-dark">
+             <img className="coinList-image"src={coin.image} alt=""/>
+             <span className="text-decoration-none">{coin.current_price}</span>
+             
+             
+             <span className= {coin.price_change_percentge_24h < 0 ? "text-danger mr-2" : "text-danger mr-2"}>
+             
+             {""}
+             {coin.price_change_percentage_24h < 0 ? (
+            <i className="fas fa-sort-down align-middle mr-1"></i>
+            ) : (
+            <i className="fas fa-sort-up align-middle mr-1"></i>
+            )}
+            {coin.price_change_percentage_24h}
+            </span>
+            <i className="delete-icon far fa-times-circle text-danger"></i>
+         </li>
+       </Link>
+    );
+};
+
+export default Coin;
